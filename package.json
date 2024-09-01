@@ -9,12 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@iconscout/unicons": "^4.0.8",
+    "next": "14.2.7",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.7"
+    "react-icons": "^5.3.0"
   },
   "devDependencies": {
+    "@types/node": "22.5.1",
+    "@types/react": "18.3.5",
+    "daisyui": "^4.12.10",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.5.4"
   }
 }
