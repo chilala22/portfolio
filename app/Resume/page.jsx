@@ -146,7 +146,7 @@ const Resume = () => {
               JavaScript, Python, and Java, and I have experience in web
               development using frameworks like React and Node.js.
             </p> */}
-            <div className="grid grid-cols-4 gap-6 text-center">
+            <div className="grid grid-cols-4 gap-6 text-center pt-10">
               <div className="flex items-center justify-center h-36 p-2 bg-slate-900 rounded-md shadow-md z-4">
                 <FaHtml5 size={90} />
               </div>
