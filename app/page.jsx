@@ -27,7 +27,7 @@ const Home = () => {
       <div className="grid grid-cols-12 gap-4">
         <div className=""></div>
         <div className="col-span-5">
-          <div className="text-gray-50 p-4">
+          <div className=" p-4">
             {/* <p className="text-xl font-semibold ">software developer</p> */}
             <p className="text-7xl font-bold">Hello I'm</p>
             <p className="text-primary text-7xl font-bold">

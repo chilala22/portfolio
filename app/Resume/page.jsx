@@ -184,7 +184,7 @@ const Resume = () => {
       <div class="grid grid-cols-12">
         <div className=""></div>
         <div className="col-span-4">
-          <div className="text-gray-50 p-4">
+          <div className=" p-4">
             <p className="text-5xl font-bold">Why Hire Me</p>
             <p className="py-4 font-medium">
               I am a highly motivated and organized individual with a strong
@@ -227,7 +227,7 @@ const Resume = () => {
         </div>
 
         <div className="col-span-6">
-          <div className="text-gray-50 p-4">{renderContent()}</div>
+          <div className=" p-4">{renderContent()}</div>
         </div>
         <div className=""></div>
       </div>

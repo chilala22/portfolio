@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <div>
       <div className="p-4 w-5/6 items-center px-20">
-        <div className="text-gray-50 p-4">
+        <div className=" p-4">
           <p className="text-7xl font-semibold  ">ABOUT ME</p>
           <p className="py-2 font-thin text-2xl">
             {/* I have a passion for creating innovative solutions. I am proficient

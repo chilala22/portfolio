@@ -8,7 +8,7 @@ const Work = () => {
           <div className="grid grid-cols-12 gap-4">
             <div className=""></div>
             <div className="col-span-8">
-              <div className="text-gray-50">
+              <div className="">
                 <p className="text-7xl font-semibold p-8 ">01</p>
                 <p className="text-3xl font-bold">
                   A movie recommendation system (Web Application) — Thesis
@@ -47,7 +47,7 @@ const Work = () => {
             <div className="grid grid-cols-12 gap-4">
               <div className=""></div>
               <div className="col-span-8">
-                <div className="text-gray-50 p-4">
+                <div className=" p-4">
                   <p className="text-7xl font-semibold p-4 ">02</p>
                   <p className="text-3xl font-bold">
                     Students Information System
@@ -77,7 +77,7 @@ const Work = () => {
           <div className="grid grid-cols-12 gap-4">
             <div className=""></div>
             <div className="col-span-8">
-              <div className="text-gray-50 p-4">
+              <div className=" p-4">
                 <p className="text-7xl font-semibold p-4 ">03</p>
                 <p className="text-3xl font-bold">
                   Systems of linear equations using the Jacobi method
