@@ -2,8 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-.footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply opacity-80;
+  }
 }

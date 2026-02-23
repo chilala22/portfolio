@@ -1,124 +1,105 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
+
+const projects = [
+  {
+    number: "01",
+    title: "Movie Recommendation System",
+    subtitle: "Web Application — Thesis Project",
+    description:
+      "Developed a recommendation system for selecting movies of interest as a final university project. The interface is a web application utilizing web technologies to create a seamless experience, showcasing the ability to build a comprehensive and functional recommendation system blending user-focused design with back-end functionality.",
+    tech: ["Python", "HTML", "CSS", "JavaScript"],
+  },
+  {
+    number: "02",
+    title: "Students Information System",
+    subtitle: "Full-Stack Web Application",
+    description:
+      "Developed a comprehensive Student Information System, integrating front-end and back-end technologies to create an efficient and user-friendly application for managing student records and data.",
+    tech: ["HTML", "CSS", "PHP"],
+  },
+  {
+    number: "03",
+    title: "Systems of Linear Equations",
+    subtitle: "Parallel Computing — Jacobi Method",
+    description:
+      "Designed and implemented a parallel program to solve systems of linear equations using the Jacobi method, demonstrating expertise in algorithm optimization and parallel computing. Achieved significant performance improvements through parallelization for large datasets.",
+    tech: ["C++", "OpenMP"],
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const Work = () => {
   return (
-    <div className="">
-      <div className="carousel w-full">
-        <div id="item1" className="carousel-item w-full">
-          <div className="grid grid-cols-12 gap-4">
-            <div className=""></div>
-            <div className="col-span-8">
-              <div className="">
-                <p className="text-7xl font-semibold p-8 ">01</p>
-                <p className="text-3xl font-bold">
-                  A movie recommendation system (Web Application) — Thesis
-                  project
+    <div className="py-10">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-10"
+      >
+        <h1 className="text-5xl font-bold">
+          My{" "}
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Projects
+          </span>
+        </h1>
+        <p className="text-base-content/50 mt-2">A selection of work I&apos;m proud of</p>
+      </motion.div>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="space-y-6"
+      >
+        {projects.map((project, i) => (
+          <motion.div
+            key={i}
+            variants={cardVariants}
+            whileHover={{ x: 6, transition: { duration: 0.2 } }}
+            className="group p-6 md:p-8 bg-white border border-base-300 rounded-2xl shadow-sm hover:border-primary/50 hover:shadow-lg transition-all duration-300 cursor-default"
+          >
+            <div className="flex flex-col md:flex-row md:items-start gap-6">
+              <span className="text-6xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors duration-300 leading-none select-none">
+                {project.number}
+              </span>
+              <div className="flex-1">
+                <h2 className="text-2xl font-bold mb-1 group-hover:text-primary transition-colors duration-300">
+                  {project.title}
+                </h2>
+                <p className="text-base-content/50 text-sm mb-3">{project.subtitle}</p>
+                <p className="text-base-content/70 leading-relaxed mb-4">
+                  {project.description}
                 </p>
-                <p className="py-2 font-thin">
-                  Developed of a recommendation system for selecting movies of
-                  interest for users as a final project in university. The
-                  interface of the recommendation system is localized in form of
-                  a web application, utilizing web technologies and tools to
-                  create a seamless experience for its users, showcasing ability
-                  create a comprehensive and functional recommendation system,
-                  blending user-focused design with back-end functionality.
-                  Demonstrated proficiency in full-stack development and
-                  capacity to tackle complex projects from concept to
-                  completion. This project not only served as a successful final
-                  year project but also highlighted my skills in creating
-                  real-world applications that caters the end-users.
-                </p>
-                <p className="py-2 font-light">PYTHON, HTML, CSS, JAVASCRIPT</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="badge badge-outline badge-sm text-primary border-primary/40 font-medium"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-
-            {/* <div className="col-span-5 ">
-              <div className="m-4">
-                <div className="w-3/4 rounded-md ">
-                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                </div>
-              </div>
-            </div> */}
-
-            <div className=""></div>
-          </div>
-        </div>
-        <div id="item2" className="carousel-item w-full">
-            <div className="grid grid-cols-12 gap-4">
-              <div className=""></div>
-              <div className="col-span-8">
-                <div className=" p-4">
-                  <p className="text-7xl font-semibold p-4 ">02</p>
-                  <p className="text-3xl font-bold">
-                    Students Information System
-                  </p>
-                  <p className="py-2 font-thin">
-                    Developed a comprehensive Student information System,
-                    integrating front-end and back-end technologies to create an
-                    efficient and user friendly application
-                  </p>
-                  <p className="py-2 font-light">HTML, CSS, PHP</p>
-                </div>
-              </div>
-
-              {/* <div className="col-span-5 ">
-                <div className="m-4">
-                  <div className="w-3/4 rounded-md ">
-                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                  </div>
-                </div>
-              </div> */}
-
-              <div className=""></div>
-            </div>
-        
-        </div>
-        <div id="item3" className="carousel-item w-full">
-          <div className="grid grid-cols-12 gap-4">
-            <div className=""></div>
-            <div className="col-span-8">
-              <div className=" p-4">
-                <p className="text-7xl font-semibold p-4 ">03</p>
-                <p className="text-3xl font-bold">
-                  Systems of linear equations using the Jacobi method
-                </p>
-                <p className="py-2 font-thin">
-                  Successfully designed and implemented a parallel program to
-                  solve a system of linear equations using the jacobi method,
-                  demonstrating expertise in algorithm optimization and parallel
-                  computing. </p>
-                  <p className="py-2 font-thin">
-                   Achieved significant performance improvements
-                  through parallelization, enabling faster processing of systems
-                  of linear equations for large datasets
-                </p>
-                <p className="py-2 font-light">C++, OpenMP</p>
-              </div>
-            </div>
-
-            {/* <div className="col-span-5 ">
-              <div className="m-4">
-                <div className="w-3/4 rounded-md ">
-                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                </div>
-              </div>
-            </div> */}
-
-            <div className=""></div>
-          </div>
-        </div>
-      </div>
-      <div className="flex w-full justify-center gap-2 ">
-        <a href="#item1" className="btn btn-sm">
-          1
-        </a>
-        <a href="#item2" className="btn btn-sm">
-          2
-        </a>
-        <a href="#item3" className="btn btn-sm">
-          3
-        </a>
-      </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   );
 };
