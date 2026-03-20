@@ -4,28 +4,31 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    number: "01",
     title: "Movie Recommendation System",
     subtitle: "Web Application — Thesis Project",
     description:
-      "Developed a recommendation system for selecting movies of interest as a final university project. The interface is a web application utilizing web technologies to create a seamless experience, showcasing the ability to build a comprehensive and functional recommendation system blending user-focused design with back-end functionality.",
+      "Built a recommendation system for selecting movies of interest as a final university project, blending user-focused design with back-end functionality.",
     tech: ["Python", "HTML", "CSS", "JavaScript"],
+    accent: "border-t-action-primary",
+    gradient: "from-blue-100 to-frost-sky",
   },
   {
-    number: "02",
     title: "Students Information System",
     subtitle: "Full-Stack Web Application",
     description:
-      "Developed a comprehensive Student Information System, integrating front-end and back-end technologies to create an efficient and user-friendly application for managing student records and data.",
+      "Developed a comprehensive Student Information System, integrating front-end and back-end technologies for managing student records and data.",
     tech: ["HTML", "CSS", "PHP"],
+    accent: "border-t-frost-rose",
+    gradient: "from-pink-100 to-frost-rose",
   },
   {
-    number: "03",
     title: "Systems of Linear Equations",
     subtitle: "Parallel Computing — Jacobi Method",
     description:
-      "Designed and implemented a parallel program to solve systems of linear equations using the Jacobi method, demonstrating expertise in algorithm optimization and parallel computing. Achieved significant performance improvements through parallelization for large datasets.",
+      "Designed and implemented a parallel program to solve systems of linear equations using the Jacobi method, achieving significant performance improvements.",
     tech: ["C++", "OpenMP"],
+    accent: "border-t-frost-violet",
+    gradient: "from-violet-100 to-frost-violet",
   },
 ];
 
@@ -51,50 +54,59 @@ const Work = () => {
         transition={{ duration: 0.5 }}
         className="mb-10"
       >
-        <h1 className="text-5xl font-bold">
-          My{" "}
-          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Projects
-          </span>
+        <h1 className="text-4xl md:text-5xl font-bold text-slate-900">
+          My Projects
         </h1>
-        <p className="text-base-content/50 mt-2">A selection of work I&apos;m proud of</p>
+        <p className="text-slate-500 mt-2">A selection of work I&apos;m proud of</p>
       </motion.div>
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="space-y-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         {projects.map((project, i) => (
           <motion.div
             key={i}
             variants={cardVariants}
-            whileHover={{ x: 6, transition: { duration: 0.2 } }}
-            className="group p-6 md:p-8 bg-white border border-base-300 rounded-2xl shadow-sm hover:border-primary/50 hover:shadow-lg transition-all duration-300 cursor-default"
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+            className={`glass-card glass-card-hover overflow-hidden border-t-2 ${project.accent} cursor-default flex flex-col`}
           >
-            <div className="flex flex-col md:flex-row md:items-start gap-6">
-              <span className="text-6xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors duration-300 leading-none select-none">
-                {project.number}
+            {/* Gradient placeholder for project image */}
+            <div className={`h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+              <span className="text-4xl font-bold text-white/30 select-none">
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <div className="flex-1">
-                <h2 className="text-2xl font-bold mb-1 group-hover:text-primary transition-colors duration-300">
-                  {project.title}
-                </h2>
-                <p className="text-base-content/50 text-sm mb-3">{project.subtitle}</p>
-                <p className="text-base-content/70 leading-relaxed mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="badge badge-outline badge-sm text-primary border-primary/40 font-medium"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+            </div>
+
+            {/* Card body */}
+            <div className="p-5 flex flex-col flex-1">
+              <h2 className="text-lg font-bold text-slate-900 mb-1">
+                {project.title}
+              </h2>
+              <p className="text-xs text-slate-500 mb-3">{project.subtitle}</p>
+              <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">
+                {project.description}
+              </p>
+
+              {/* Tech badges */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((t) => (
+                  <span
+                    key={t}
+                    className="px-2.5 py-1 text-xs font-medium rounded-full bg-white/50 text-slate-600 border border-white/60"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              {/* Action buttons */}
+              <div className="flex gap-2">
+                <span className="btn-glass text-xs px-3 py-1.5 rounded-lg">
+                  View Case Study
+                </span>
               </div>
             </div>
           </motion.div>
