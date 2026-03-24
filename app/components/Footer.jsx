@@ -3,8 +3,8 @@ import { FaTelegram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="relative z-10 mt-20 bg-white/40 backdrop-blur-glass border-t border-white/50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <footer className="relative z-10 mt-12 sm:mt-20 bg-white/40 backdrop-blur-glass border-t border-white/50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <span className="text-xl font-bold text-action-primary">Beene.</span>

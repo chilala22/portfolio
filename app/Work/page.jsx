@@ -74,14 +74,14 @@ const cardVariants = {
 
 const Work = () => {
   return (
-    <div className="py-10">
+    <div className="py-6 sm:py-10">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="mb-10"
+        className="mb-6 sm:mb-10"
       >
-        <h1 className="text-4xl md:text-5xl font-bold text-slate-900">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900">
           My Projects
         </h1>
         <p className="text-slate-500 mt-2">A selection of work I&apos;m proud of</p>
@@ -91,7 +91,7 @@ const Work = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
       >
         {projects.map((project, i) => (
           <motion.div
