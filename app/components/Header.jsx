@@ -17,14 +17,14 @@ const Header = () => {
 
   return (
     <motion.header
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-3xl"
+      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-3xl"
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <nav className="glass-nav px-2 sm:px-6 py-2 flex items-center justify-between">
+      <nav className="glass-nav px-4 sm:px-6 py-2.5 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="px-2">
+        <Link href="/" className="flex-shrink-0">
           <motion.span
             className="text-xl font-bold text-action-primary"
             whileHover={{ scale: 1.05 }}
@@ -71,11 +71,11 @@ const Header = () => {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 text-slate-600 hover:text-action-primary transition-colors"
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/50 text-slate-700 hover:text-action-primary hover:bg-white/70 transition-all"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <BiX size={24} /> : <BiMenu size={24} />}
+          {mobileOpen ? <BiX size={22} /> : <BiMenu size={22} />}
         </button>
       </nav>
 
@@ -83,33 +83,35 @@ const Header = () => {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="glass-card mt-2 p-4 md:hidden"
+            className="glass-card mt-2 p-3 md:hidden overflow-hidden"
           >
-            <ul className="flex flex-col gap-2">
+            <ul className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`block rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${
+                    className={`block rounded-xl px-4 py-3 text-sm font-medium transition-all ${
                       pathname === link.href
-                        ? "text-action-primary bg-white/50"
-                        : "text-slate-600 hover:text-action-primary hover:bg-white/30"
+                        ? "text-action-primary bg-white/60 font-semibold"
+                        : "text-slate-600 hover:text-action-primary hover:bg-white/40"
                     }`}
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
-              <li>
+              <li className="mt-1">
                 <Link
                   href="/Resume"
                   onClick={() => setMobileOpen(false)}
-                  className="btn-primary-frost rounded-full px-5 py-2.5 text-sm w-full text-center"
+                  className={`btn-primary-frost rounded-xl px-5 py-3 text-sm w-full text-center block ${
+                    pathname === "/Resume" ? "ring-2 ring-action-primary/30" : ""
+                  }`}
                 >
                   Resume
                 </Link>
