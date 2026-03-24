@@ -120,8 +120,8 @@ const renderContent = (selectedSection) => {
           animate="visible"
           exit="exit"
         >
-          <h2 className="text-4xl font-bold text-slate-900 mb-6">My Experience</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 overflow-y-auto max-h-[65vh] pr-1">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">My Experience</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 overflow-y-auto max-h-[50vh] sm:max-h-[60vh] md:max-h-[65vh] pr-1">
             {experiences.map((exp, i) => (
               <motion.div
                 key={i}
@@ -153,7 +153,7 @@ const renderContent = (selectedSection) => {
           animate="visible"
           exit="exit"
         >
-          <h2 className="text-4xl font-bold text-slate-900 mb-6">My Education</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">My Education</h2>
           <div className="space-y-4">
             {education.map((edu, i) => (
               <motion.div
@@ -186,8 +186,8 @@ const renderContent = (selectedSection) => {
           animate="visible"
           exit="exit"
         >
-          <h2 className="text-4xl font-bold text-slate-900 mb-6">My Skills</h2>
-          <div className="grid grid-cols-3 gap-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">My Skills</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
             {skills.map((skill, i) => (
               <motion.div
                 key={i}
@@ -218,16 +218,16 @@ const Resume = () => {
   const [selectedSection, setSelectedSection] = useState("Experience");
 
   return (
-    <div className="py-10">
+    <div className="py-6 sm:py-10">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 gap-4"
+        className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-10 gap-4"
       >
         <div>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Resume</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900">Resume</h1>
         </div>
         <motion.a
           href="/Beene_Chilala_CV1.pdf"
@@ -241,7 +241,7 @@ const Resume = () => {
         </motion.a>
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
         {/* Sidebar */}
         <motion.div
           className="lg:col-span-4"
@@ -256,12 +256,12 @@ const Resume = () => {
               for learning, growth, and building impactful digital solutions.
             </p>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-row lg:flex-col gap-2 sm:gap-3 overflow-x-auto">
             {sections.map((section) => (
               <motion.button
                 key={section}
                 onClick={() => setSelectedSection(section)}
-                className={`w-full text-left rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-300 ${
+                className={`flex-1 lg:flex-none lg:w-full text-center lg:text-left rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-sm font-semibold transition-all duration-300 whitespace-nowrap ${
                   selectedSection === section
                     ? "btn-primary-frost"
                     : "glass-card glass-card-hover text-slate-600 hover:text-action-primary"

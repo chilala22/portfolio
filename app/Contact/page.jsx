@@ -65,7 +65,7 @@ const socialLinks = [
 
 const Contact = () => {
   return (
-    <div className="py-10">
+    <div className="py-6 sm:py-10">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -73,12 +73,12 @@ const Contact = () => {
         className="space-y-10"
       >
         {/* About Me Glass Card */}
-        <motion.div variants={itemVariants} className="glass-card glass-card-hover p-6 md:p-10">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <motion.div variants={itemVariants} className="glass-card glass-card-hover p-5 sm:p-6 md:p-10">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
             <div className="flex-shrink-0">
               <div className="relative">
                 <div className="absolute inset-0 rounded-full bg-frost-sky/50 scale-110" style={{ filter: "blur(20px)" }} />
-                <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white/60 shadow-glass">
+                <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white/60 shadow-glass">
                   <img
                     src="/Image3.jpg"
                     alt="Beene Chilala"
@@ -88,7 +88,7 @@ const Contact = () => {
               </div>
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-2">
                 About Me
               </h1>
               <p className="text-action-primary font-semibold text-sm uppercase tracking-wider mb-4">
@@ -106,8 +106,8 @@ const Contact = () => {
           </div>
 
           {/* Skills Icons */}
-          <div className="mt-8 pt-6 border-t border-white/30">
-            <div className="flex flex-wrap justify-center gap-4">
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-white/30">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
               {skills.map((skill, i) => (
                 <motion.div
                   key={skill.label}
@@ -115,11 +115,11 @@ const Contact = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 + i * 0.05, duration: 0.3 }}
                   whileHover={{ scale: 1.15, y: -4 }}
-                  className="glass-icon-circle flex-col gap-1 w-16 h-16 cursor-default"
+                  className="glass-icon-circle flex-col gap-1 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 cursor-default"
                   title={skill.label}
                 >
-                  <skill.icon size={24} className="text-action-primary" />
-                  <span className="text-[9px] font-medium text-slate-500">{skill.label}</span>
+                  <skill.icon className="text-action-primary w-5 h-5 sm:w-6 sm:h-6" />
+                  <span className="text-[8px] sm:text-[9px] font-medium text-slate-500">{skill.label}</span>
                 </motion.div>
               ))}
             </div>
