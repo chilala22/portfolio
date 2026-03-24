@@ -8,8 +8,7 @@ import { BiMenu, BiX } from "react-icons/bi";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/Work", label: "Projects" },
-  { href: "/About", label: "About" },
-  { href: "/Contact", label: "Contact" },
+  { href: "/Contact", label: "About" },
 ];
 
 const Header = () => {
