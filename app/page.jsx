@@ -19,7 +19,7 @@ const itemVariants = {
 
 const Home = () => {
   return (
-    <div className="min-h-[calc(100vh-8rem)] flex items-center justify-center">
+    <div className="h-[calc(100vh-8rem)] flex items-center justify-center overflow-hidden">
       <motion.div
         variants={containerVariants}
         initial="hidden"
