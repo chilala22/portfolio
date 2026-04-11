@@ -1,19 +1,37 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/Work", label: "Projects" },
-  { href: "/Contact", label: "About" },
+  { id: "home", label: "Home" },
+  { id: "projects", label: "Projects" },
+  { id: "about", label: "About" },
+  { id: "resume", label: "Resume" },
 ];
 
 const Header = () => {
-  const pathname = usePathname();
+  const [activeId, setActiveId] = useState("home");
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.id);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <motion.header
@@ -22,61 +40,53 @@ const Header = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <nav className="glass-nav px-4 sm:px-6 py-2.5 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex-shrink-0">
-          <motion.span
-            className="text-xl font-bold text-action-primary"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400 }}
-          >
-            Beene<span className="text-slate-400">.</span>
-          </motion.span>
-        </Link>
-
-        {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={`relative font-medium rounded-lg px-4 py-2 text-sm transition-all duration-200 ${
-                  pathname === link.href
-                    ? "text-action-primary bg-white/50"
-                    : "text-slate-600 hover:text-action-primary hover:bg-white/30"
-                }`}
-              >
-                {link.label}
-                {pathname === link.href && (
-                  <motion.span
-                    className="absolute bottom-1 left-3 right-3 h-0.5 bg-action-primary rounded-full"
-                    layoutId="underline"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
-              </Link>
-            </li>
-          ))}
-          <li>
-            <Link
-              href="/Resume"
-              className={`btn-primary-frost rounded-full px-5 py-2 text-sm ${
-                pathname === "/Resume" ? "ring-2 ring-action-primary/30 ring-offset-2" : ""
-              }`}
+      <nav className="glass-nav px-4 sm:px-6 py-2.5 flex items-center justify-center">
+        <div className="flex items-center gap-4 sm:gap-6">
+          {/* Logo */}
+          <a href="#home">
+            <motion.span
+              className="text-xl font-bold text-action-primary"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400 }}
             >
-              Resume
-            </Link>
-          </li>
-        </ul>
+              Beene<span className="text-slate-400">.</span>
+            </motion.span>
+          </a>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/50 text-slate-700 hover:text-action-primary hover:bg-white/70 transition-all"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <BiX size={22} /> : <BiMenu size={22} />}
-        </button>
+          {/* Desktop nav */}
+          <ul className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <li key={link.id}>
+                <a
+                  href={`#${link.id}`}
+                  className={`relative font-medium rounded-lg px-4 py-2 text-sm transition-all duration-200 ${
+                    activeId === link.id
+                      ? "text-action-primary bg-white/50"
+                      : "text-slate-600 hover:text-action-primary hover:bg-white/30"
+                  }`}
+                >
+                  {link.label}
+                  {activeId === link.id && (
+                    <motion.span
+                      className="absolute bottom-1 left-3 right-3 h-0.5 bg-action-primary rounded-full"
+                      layoutId="underline"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/50 text-slate-700 hover:text-action-primary hover:bg-white/70 transition-all"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <BiX size={22} /> : <BiMenu size={22} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -91,31 +101,20 @@ const Header = () => {
           >
             <ul className="flex flex-col gap-1">
               {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
+                <li key={link.id}>
+                  <a
+                    href={`#${link.id}`}
                     onClick={() => setMobileOpen(false)}
                     className={`block rounded-xl px-4 py-3 text-sm font-medium transition-all ${
-                      pathname === link.href
+                      activeId === link.id
                         ? "text-action-primary bg-white/60 font-semibold"
                         : "text-slate-600 hover:text-action-primary hover:bg-white/40"
                     }`}
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
-              <li className="mt-1">
-                <Link
-                  href="/Resume"
-                  onClick={() => setMobileOpen(false)}
-                  className={`btn-primary-frost rounded-xl px-5 py-3 text-sm w-full text-center block ${
-                    pathname === "/Resume" ? "ring-2 ring-action-primary/30" : ""
-                  }`}
-                >
-                  Resume
-                </Link>
-              </li>
             </ul>
           </motion.div>
         )}

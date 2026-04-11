@@ -120,7 +120,9 @@ const renderContent = (selectedSection) => {
           animate="visible"
           exit="exit"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">My Experience</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">
+            My Experience
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 overflow-y-auto max-h-[50vh] sm:max-h-[60vh] md:max-h-[65vh] pr-1">
             {experiences.map((exp, i) => (
               <motion.div
@@ -133,7 +135,9 @@ const renderContent = (selectedSection) => {
                 className="glass-card glass-card-hover p-4 flex flex-col gap-3"
               >
                 <p className="text-action-primary text-xs font-semibold">{exp.period}</p>
-                <p className="text-sm text-slate-600 flex-1 leading-relaxed">{exp.description}</p>
+                <p className="text-sm text-slate-600 flex-1 leading-relaxed">
+                  {exp.description}
+                </p>
                 <div className="border-t border-white/30 pt-2">
                   <p className="font-semibold text-sm text-slate-900">{exp.role}</p>
                   <p className="text-slate-500 text-xs">{exp.org}</p>
@@ -153,7 +157,9 @@ const renderContent = (selectedSection) => {
           animate="visible"
           exit="exit"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">My Education</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">
+            My Education
+          </h2>
           <div className="space-y-4">
             {education.map((edu, i) => (
               <motion.div
@@ -165,7 +171,9 @@ const renderContent = (selectedSection) => {
                 whileHover={{ scale: 1.01 }}
                 className="glass-card glass-card-hover p-5"
               >
-                <p className="text-action-primary font-semibold text-sm mb-2">{edu.period}</p>
+                <p className="text-action-primary font-semibold text-sm mb-2">
+                  {edu.period}
+                </p>
                 <p className="text-xl font-bold text-slate-900 mb-1">{edu.degree}</p>
                 <p className="text-slate-500 text-sm mb-3">{edu.school}</p>
                 {edu.desc && (
@@ -186,7 +194,9 @@ const renderContent = (selectedSection) => {
           animate="visible"
           exit="exit"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">My Skills</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">
+            My Skills
+          </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
             {skills.map((skill, i) => (
               <motion.div
@@ -200,9 +210,7 @@ const renderContent = (selectedSection) => {
                 className="glass-card glass-card-hover flex flex-col items-center justify-center gap-2 p-5 cursor-default"
               >
                 <skill.icon size={48} className="text-action-primary" />
-                <span className="text-xs font-medium text-slate-500">
-                  {skill.label}
-                </span>
+                <span className="text-xs font-medium text-slate-500">{skill.label}</span>
               </motion.div>
             ))}
           </div>
@@ -214,20 +222,23 @@ const renderContent = (selectedSection) => {
   }
 };
 
-const Resume = () => {
+const ResumeSection = () => {
   const [selectedSection, setSelectedSection] = useState("Experience");
 
   return (
-    <div className="py-6 sm:py-10">
+    <section id="resume" className="scroll-mt-24 py-12 sm:py-20">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5 }}
         className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-10 gap-4"
       >
         <div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900">Resume</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900">
+            Resume
+          </h1>
         </div>
         <motion.a
           href="/Beene_Chilala_CV1.pdf"
@@ -246,7 +257,8 @@ const Resume = () => {
         <motion.div
           className="lg:col-span-4"
           initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="glass-card p-5 mb-6">
@@ -282,8 +294,8 @@ const Resume = () => {
           </AnimatePresence>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Resume;
+export default ResumeSection;

@@ -63,21 +63,28 @@ const socialLinks = [
   },
 ];
 
-const Contact = () => {
+const AboutSection = () => {
   return (
-    <div className="py-6 sm:py-10">
+    <section id="about" className="scroll-mt-24 py-12 sm:py-20">
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
         className="space-y-10"
       >
         {/* About Me Glass Card */}
-        <motion.div variants={itemVariants} className="glass-card glass-card-hover p-5 sm:p-6 md:p-10">
+        <motion.div
+          variants={itemVariants}
+          className="glass-card glass-card-hover p-5 sm:p-6 md:p-10"
+        >
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
             <div className="flex-shrink-0">
               <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-frost-sky/50 scale-110" style={{ filter: "blur(20px)" }} />
+                <div
+                  className="absolute inset-0 rounded-full bg-frost-sky/50 scale-110"
+                  style={{ filter: "blur(20px)" }}
+                />
                 <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white/60 shadow-glass">
                   <img
                     src="/Image3.jpg"
@@ -112,14 +119,17 @@ const Contact = () => {
                 <motion.div
                   key={skill.label}
                   initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 0.5 + i * 0.05, duration: 0.3 }}
                   whileHover={{ scale: 1.15, y: -4 }}
                   className="glass-icon-circle flex-col gap-1 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 cursor-default"
                   title={skill.label}
                 >
                   <skill.icon className="text-action-primary w-5 h-5 sm:w-6 sm:h-6" />
-                  <span className="text-[8px] sm:text-[9px] font-medium text-slate-500">{skill.label}</span>
+                  <span className="text-[8px] sm:text-[9px] font-medium text-slate-500">
+                    {skill.label}
+                  </span>
                 </motion.div>
               ))}
             </div>
@@ -136,7 +146,8 @@ const Contact = () => {
                 target={link.href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.6 + i * 0.1, duration: 0.4 }}
                 whileHover={{ scale: 1.03, y: -2 }}
                 className="glass-card glass-card-hover p-5 flex flex-col items-center gap-3 text-center"
@@ -144,15 +155,19 @@ const Contact = () => {
                 <div className="glass-icon-circle w-14 h-14">
                   <link.icon size={26} className={link.color} />
                 </div>
-                <span className="font-semibold text-slate-900 text-sm">{link.label}</span>
-                <span className="text-xs text-slate-500 truncate max-w-full">{link.value}</span>
+                <span className="font-semibold text-slate-900 text-sm">
+                  {link.label}
+                </span>
+                <span className="text-xs text-slate-500 truncate max-w-full">
+                  {link.value}
+                </span>
               </motion.a>
             ))}
           </div>
         </motion.div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 
-export default Contact;
+export default AboutSection;
