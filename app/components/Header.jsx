@@ -35,7 +35,7 @@ const Header = () => {
 
   return (
     <motion.header
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-3xl"
+      className="fixed top-4 inset-x-0 z-50 flex justify-center px-4"
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
