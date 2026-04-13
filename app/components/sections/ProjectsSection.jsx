@@ -30,33 +30,8 @@ const projects = [
     accent: "border-t-frost-violet",
     gradient: "from-violet-100 to-frost-violet",
   },
-  {
-    title: "Government Digital Platform",
-    subtitle: "Systems Development — Smart Zambia",
-    description:
-      "Supported the design, development, and maintenance of government digital platforms, conducting systems analysis including requirements gathering and process mapping.",
-    tech: ["React", "Next.js", "Tailwind CSS"],
-    accent: "border-t-action-primary",
-    gradient: "from-sky-100 to-frost-sky",
-  },
-  {
-    title: "Computer Accessory Storefront",
-    subtitle: "E-Commerce Web Application",
-    description:
-      "Built an online storefront for computer accessories with product catalog, cart functionality, and order management as part of a university internship.",
-    tech: ["PHP", "MySQL", "HTML", "CSS"],
-    accent: "border-t-frost-rose",
-    gradient: "from-rose-100 to-frost-rose",
-  },
-  {
-    title: "Portfolio Website",
-    subtitle: "Personal Website — Glassmorphism Design",
-    description:
-      "Designed and developed a modern personal portfolio with glassmorphism aesthetics, smooth animations, and responsive layout to showcase projects and experience.",
-    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    accent: "border-t-frost-violet",
-    gradient: "from-indigo-100 to-frost-violet",
-  },
+ 
+ 
 ];
 
 const containerVariants = {

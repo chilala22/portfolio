@@ -9,9 +9,11 @@ const Home = () => {
   return (
     <>
       <HeroSection />
-      <ProjectsSection />
       <AboutSection />
       <ResumeSection />
+      <ProjectsSection />
+     
+     
     </>
   );
 };
