@@ -72,12 +72,13 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const Work = () => {
+const ProjectsSection = () => {
   return (
-    <div className="py-6 sm:py-10">
+    <section id="projects" className="scroll-mt-24 py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5 }}
         className="mb-6 sm:mb-10"
       >
@@ -90,7 +91,8 @@ const Work = () => {
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
       >
         {projects.map((project, i) => (
@@ -101,7 +103,9 @@ const Work = () => {
             className={`glass-card glass-card-hover overflow-hidden border-t-2 ${project.accent} cursor-default flex flex-col`}
           >
             {/* Gradient placeholder for project image */}
-            <div className={`h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+            <div
+              className={`h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}
+            >
               <span className="text-4xl font-bold text-white/30 select-none">
                 {String(i + 1).padStart(2, "0")}
               </span>
@@ -139,8 +143,8 @@ const Work = () => {
           </motion.div>
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 };
 
-export default Work;
+export default ProjectsSection;
