@@ -6,6 +6,9 @@ export const metadata = {
   title: "Beene Chilala | Software Developer",
   description:
     "Portfolio of Beene Chilala — Software Developer specializing in web development, databases, and systems administration.",
+  icons: {
+    icon: "icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
